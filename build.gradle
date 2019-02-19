@@ -1,0 +1,8 @@
+group 'kotlinfullstack'
+version '0.0.1'
+
+allprojects {
+    repositories {
+        jcenter()
+    }
+}

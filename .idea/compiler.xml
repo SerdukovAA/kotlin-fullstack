@@ -2,14 +2,24 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
+      <module name="kotlinfullstack.api.jvmMain" target="1.8" />
+      <module name="kotlinfullstack.api.jvmTest" target="1.6" />
+      <module name="kotlinfullstack.backend.jvmMain" target="1.8" />
+      <module name="kotlinfullstack.backend.jvmTest" target="1.6" />
+      <module name="kotlinfullstack.backend.main" target="1.8" />
+      <module name="kotlinfullstack.backend.test" target="1.8" />
       <module name="kotlinfullstack.core-api.jvmMain" target="1.6" />
       <module name="kotlinfullstack.core-api.jvmTest" target="1.6" />
-      <module name="kotlinfullstack.core.jvmMain" target="1.6" />
+      <module name="kotlinfullstack.core.jvmMain" target="1.8" />
       <module name="kotlinfullstack.core.jvmTest" target="1.6" />
+      <module name="kotlinfullstack.frontend.jvmMain" target="1.8" />
+      <module name="kotlinfullstack.frontend.jvmTest" target="1.6" />
       <module name="kotlinfullstack.platform-api.jvmMain" target="1.6" />
       <module name="kotlinfullstack.platform-api.jvmTest" target="1.6" />
-      <module name="kotlinfullstack.platform.jvmMain" target="1.6" />
+      <module name="kotlinfullstack.platform.jvmMain" target="1.8" />
       <module name="kotlinfullstack.platform.jvmTest" target="1.6" />
+      <module name="kotlinfullstack.render.jvmMain" target="1.8" />
+      <module name="kotlinfullstack.render.jvmTest" target="1.6" />
     </bytecodeTargetLevel>
   </component>
 </project>

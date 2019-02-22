@@ -9,10 +9,11 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/api" />
+            <option value="$PROJECT_DIR$/backend" />
             <option value="$PROJECT_DIR$/core" />
-            <option value="$PROJECT_DIR$/core-api" />
-            <option value="$PROJECT_DIR$/platform" />
-            <option value="$PROJECT_DIR$/platform-api" />
+            <option value="$PROJECT_DIR$/frontend" />
+            <option value="$PROJECT_DIR$/render" />
           </set>
         </option>
         <option name="useAutoImport" value="true" />

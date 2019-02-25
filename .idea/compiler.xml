@@ -2,6 +2,8 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
+      <module name="com.example.backend.main" target="1.8" />
+      <module name="com.example.backend.test" target="1.8" />
       <module name="kotlinfullstack.api.jvmMain" target="1.8" />
       <module name="kotlinfullstack.api.jvmTest" target="1.6" />
       <module name="kotlinfullstack.backend.jvmMain" target="1.8" />

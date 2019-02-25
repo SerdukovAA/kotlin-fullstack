@@ -8,7 +8,9 @@ fun handle(path: String){
 
     get("/product/{productId}"){
 
-        pathVar
+       val o:Any = it.get(0)
+
+
 
 
     }
@@ -17,9 +19,12 @@ fun handle(path: String){
 
 
 
-fun get(path: String, handler: ()-> ModelAndView){
+fun get(path: String, handler: (cont: List<Any>)-> ModelAndView){
 
     val pathVar: List<Any> = ArrayList()
 
+    handler.invoke(pathVar)
 
 }
+
+

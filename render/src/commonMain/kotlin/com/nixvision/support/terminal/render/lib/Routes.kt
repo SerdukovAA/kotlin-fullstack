@@ -1,5 +1,6 @@
-package com.nixvision.support.terminal.render
+package com.nixvision.support.terminal.render.lib
 
+import com.nixvision.support.terminal.render.RoutingConfiguration
 import com.nixvision.support.terminal.render.pages.IndexRender
 import com.nixvision.support.terminal.render.pages.ProductRender
 
@@ -7,23 +8,18 @@ object Routes {
 
     val routes: MutableMap<String, (String) -> ModelAndView> = mutableMapOf()
 
-
-    fun routing() {
-
-        page("/product/{id}") {
-                val id = call["id"]
-              ProductRender.pageForOneProduct(id)
-        }
-
-        page("/index") {
-            IndexRender.indexPage()
-        }
-
-    }
-
     fun page(pathTemplate: String, contextFun: RoutContext.(p: String) -> ModelAndView) {
         //парсим pathTemplate и загоняем переменные в RoutContext
         routes[pathTemplate] = { path ->  contextFun(RoutContext(path), "test")}
     }
 
+
+
 }
+
+fun RoutingConfiguration.page(pathTemplate: String, contextFun: RoutContext.() -> ModelAndView) {
+    //parsing pathTemplate
+    Routes.routes[pathTemplate] = { path ->  contextFun(RoutContext(path))}
+}
+
+val RoutingConfiguration.routes: MutableSet<String>  get() = Routes.routes.keys

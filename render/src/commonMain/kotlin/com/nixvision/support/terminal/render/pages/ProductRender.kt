@@ -1,6 +1,6 @@
 package com.nixvision.support.terminal.render.pages
 
-import com.nixvision.support.terminal.render.ModelAndView
+import com.nixvision.support.terminal.render.lib.ModelAndView
 
 object ProductRender {
 

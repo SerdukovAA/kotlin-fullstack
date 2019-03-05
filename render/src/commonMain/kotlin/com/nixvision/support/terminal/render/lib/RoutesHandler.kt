@@ -3,44 +3,32 @@ package com.nixvision.support.terminal.render.lib
 
 object RoutesHandler {
 
+     val PATH_VARIABLE_PLACE_HOLDER = Regex("\\{[\\s\\S]+\\}")
+
      fun handle(path:String) : ModelAndView {
-
          var resultView: ModelAndView = pageNotFound()
-
          for ((pathTemplate, handler) in Routes.routes){
-
-             if( pathEqualTemplate ( path , pathTemplate ) ) {
+             if( isPathMatchTemplate ( path , pathTemplate ) ) {
                  resultView = handler.invoke(path)
                  break
              }
          }
-
          return resultView
     }
 
 
-    fun pathEqualTemplate(path:String , template: String): Boolean{
-
+    fun isPathMatchTemplate(path:String, template: String): Boolean{
         val pathParts = path.split("/")
-        val templateParts = path.split("/")
-
-
-        val pathPartsReg = mutableListOf<String>()
-        pathParts.forEach { p ->
-            if(p.contains("{") && p.contains("}"))
-                pathPartsReg.add("*")
-            else
-                pathPartsReg.add(p)
+        val templateParts = template.split("/")
+        if(templateParts.size != pathParts.size ){
+            return false
         }
-
-        for( (i,t) in templateParts.withIndex() ){
-
-            if(pathPartsReg.get())
-
-
+        val pathsPairs = templateParts zip pathParts
+        for( (t,p) in pathsPairs){
+            if(t != p && ! PATH_VARIABLE_PLACE_HOLDER.matches(t)){
+                return false
+            }
         }
-
-
         return true
     }
 

@@ -1,5 +1,7 @@
 package com.nixvision.support.terminal.render.lib
 
+import com.nixvision.support.terminal.render.RoutingConfiguration
+
 object Routes {
 
     val routes: MutableMap<String, (String) -> ModelAndView> = mutableMapOf()
@@ -10,3 +12,10 @@ object Routes {
     }
 
 }
+
+fun RoutingConfiguration.page(pathTemplate: String, contextFun: RoutContext.() -> ModelAndView) {
+    //parsing pathTemplate
+    Routes.routes[pathTemplate] = { path ->  contextFun(RoutContext(path))}
+}
+
+val RoutingConfiguration.routes: MutableSet<String>  get() = Routes.routes.keys

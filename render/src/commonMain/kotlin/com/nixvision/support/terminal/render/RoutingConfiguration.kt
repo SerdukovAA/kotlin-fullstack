@@ -2,8 +2,8 @@ package com.nixvision.support.terminal.render
 
 import com.nixvision.support.terminal.render.lib.Routes.page
 import com.nixvision.support.terminal.render.pages.IndexRender
+import com.nixvision.support.terminal.render.pages.NotFoundRender
 import com.nixvision.support.terminal.render.pages.ProductRender
-
 
 
 object RoutingConfiguration {
@@ -21,6 +21,10 @@ object RoutingConfiguration {
 
         page("/index/{path}/gut") {
             IndexRender.indexPage()
+        }
+
+        page("/404") {
+            NotFoundRender.pageNotFound()
         }
 
     }

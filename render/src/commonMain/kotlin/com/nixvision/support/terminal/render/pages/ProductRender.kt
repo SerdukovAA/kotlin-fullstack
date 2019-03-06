@@ -6,7 +6,7 @@ object ProductRender {
 
     fun pageForOneProduct(id: String?): ModelAndView {
 
-        return ModelAndView()
+        return ModelAndView(html = "<h4>Product</h4>", model = Any())
     }
 
 }

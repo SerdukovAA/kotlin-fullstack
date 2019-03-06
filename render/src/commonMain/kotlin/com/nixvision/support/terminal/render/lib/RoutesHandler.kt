@@ -6,7 +6,7 @@ object RoutesHandler {
      val PATH_VARIABLE_PLACE_HOLDER = Regex("\\{[\\s\\S]+\\}")
 
      fun handle(path:String) : ModelAndView {
-         var resultView: ModelAndView = pageNotFound()
+         var resultView: ModelAndView
          for ((pathTemplate, handler) in Routes.routes){
              if( isPathMatchTemplate ( path , pathTemplate ) ) {
                  resultView = handler.invoke(path)

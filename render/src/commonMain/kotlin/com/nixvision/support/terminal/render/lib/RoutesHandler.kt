@@ -18,8 +18,8 @@ object RoutesHandler {
 
 
     fun isPathMatchTemplate(path:String, template: String): Boolean{
-        val pathParts = path.split("/")
-        val templateParts = template.split("/")
+        val pathParts = path.split("?")[0].split("/")
+        val templateParts = template.split("?")[0].split("/")
         if(templateParts.size != pathParts.size ){
             return false
         }

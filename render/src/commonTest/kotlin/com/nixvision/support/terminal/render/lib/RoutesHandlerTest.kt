@@ -8,7 +8,7 @@ import kotlin.test.assertTrue
 class RoutesHandlerTest {
 
     @Test
-    fun `Check pathEqualTemplate method`() {
+    fun `Check isPathMatchTemplate method`() {
 
         assertTrue { RoutesHandler.isPathMatchTemplate("/index", "/index") }
 
@@ -25,6 +25,17 @@ class RoutesHandlerTest {
         assertFalse { RoutesHandler.isPathMatchTemplate("/product/15", "/product/{product}/info") }
 
         assertFalse { RoutesHandler.isPathMatchTemplate("/product/15", "/product/{product}/info") }
+
+    }
+
+    @Test
+    fun `Check isPathMatchTemplate method with request params`() {
+
+        assertTrue { RoutesHandler.isPathMatchTemplate("/index?user=10", "/index") }
+
+        assertTrue { RoutesHandler.isPathMatchTemplate("/index?user=15&cat=15", "/index?user={userId}&cat={catId}") }
+
+        assertTrue { RoutesHandler.isPathMatchTemplate("/index?user=15&cat=15", "/index?user={userId}") }
 
     }
 

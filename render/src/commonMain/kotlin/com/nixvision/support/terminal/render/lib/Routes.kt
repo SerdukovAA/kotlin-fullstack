@@ -1,8 +1,6 @@
 package com.nixvision.support.terminal.render.lib
 
 import com.nixvision.support.terminal.render.RoutingConfiguration
-import com.nixvision.support.terminal.render.pages.IndexRender
-import com.nixvision.support.terminal.render.pages.ProductRender
 
 object Routes {
 
@@ -12,8 +10,6 @@ object Routes {
         //парсим pathTemplate и загоняем переменные в RoutContext
         routes[pathTemplate] = { path ->  contextFun(RoutContext(path), "test")}
     }
-
-
 
 }
 

@@ -20,9 +20,7 @@ class DynamicPagesController {
     fun dynamicPagesMapping(): SimpleUrlHandlerMapping {
         val mapping = SimpleUrlHandlerMapping()
         mapping.order = Integer.MAX_VALUE - 2
-
         val urlMap = HashMap<String, AbstractController>()
-
         RoutingConfiguration.routes.forEach(Consumer { path ->
             urlMap[path] = object : AbstractController() {
                 override fun handleRequestInternal(request: HttpServletRequest, response: HttpServletResponse): ModelAndView? {
@@ -32,7 +30,6 @@ class DynamicPagesController {
                 }
             }
         })
-
         mapping.urlMap = urlMap
         return mapping
     }

@@ -6,7 +6,9 @@ import kotlinx.html.*
 fun HTML.mainLayoutWithTitleBar(content: DIV.() -> Unit) {
     body { style = "margin:0"
         mainContainer {
-            titleToolBar("SupportTerminal")
+            //Header
+            titleToolBar(title = "SupportTerminal")
+            //Under header
             leftMenuWithContent {
                 content()
             }

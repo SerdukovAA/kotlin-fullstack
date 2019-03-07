@@ -8,7 +8,7 @@ fun HEAD.generalStyle() {
     style {
         unsafe {
             raw("""
-                               div { border: 1px solid red;}
+
                         """)
         }
     }

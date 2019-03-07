@@ -20,7 +20,7 @@
       <module name="kotlinfullstack.platform-api.jvmTest" target="1.6" />
       <module name="kotlinfullstack.platform.jvmMain" target="1.8" />
       <module name="kotlinfullstack.platform.jvmTest" target="1.6" />
-      <module name="kotlinfullstack.render.jvmMain" target="1.6" />
+      <module name="kotlinfullstack.render.jvmMain" target="1.8" />
       <module name="kotlinfullstack.render.jvmTest" target="1.6" />
     </bytecodeTargetLevel>
   </component>

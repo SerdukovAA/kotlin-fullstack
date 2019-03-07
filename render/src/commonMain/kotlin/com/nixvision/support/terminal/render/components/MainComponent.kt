@@ -6,6 +6,7 @@ import kotlinx.html.*
 fun HTML.mainLayoutWithTitleBar(content : DIV.() -> Unit) {
     body{
         div{
+            style = """ background-color:red """
             + "Left menu"
         }
         div("") {
@@ -13,3 +14,4 @@ fun HTML.mainLayoutWithTitleBar(content : DIV.() -> Unit) {
         }
     }
 }
+

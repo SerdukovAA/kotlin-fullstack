@@ -10,16 +10,12 @@ import kotlinx.html.stream.createHTML
 object IndexRender {
 
     fun indexPage(): ModelAndView {
-
         val html =  createHTML().html {
-
             mainHead()
-
             mainLayoutWithTitleBar {
                     div { + "Index Content" }
             }
         }
-
         return ModelAndView(html)
     }
 

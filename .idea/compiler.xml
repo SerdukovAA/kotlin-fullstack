@@ -16,6 +16,8 @@
       <module name="kotlinfullstack.core.jvmTest" target="1.6" />
       <module name="kotlinfullstack.frontend.jvmMain" target="1.8" />
       <module name="kotlinfullstack.frontend.jvmTest" target="1.6" />
+      <module name="kotlinfullstack.frontend.main" target="1.8" />
+      <module name="kotlinfullstack.frontend.test" target="1.8" />
       <module name="kotlinfullstack.platform-api.jvmMain" target="1.6" />
       <module name="kotlinfullstack.platform-api.jvmTest" target="1.6" />
       <module name="kotlinfullstack.platform.jvmMain" target="1.8" />

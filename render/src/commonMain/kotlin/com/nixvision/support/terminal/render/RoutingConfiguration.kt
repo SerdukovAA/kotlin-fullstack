@@ -1,7 +1,8 @@
 package com.nixvision.support.terminal.render
 
 import com.nixvision.support.terminal.render.lib.Routes.page
-import com.nixvision.support.terminal.render.pages.IndexRender
+import com.nixvision.support.terminal.render.pages.HelpPage
+import com.nixvision.support.terminal.render.pages.IndexPage
 import com.nixvision.support.terminal.render.pages.NotFoundRender
 import com.nixvision.support.terminal.render.pages.ProductRender
 
@@ -16,11 +17,15 @@ object RoutingConfiguration {
         }
 
         page("/index") {
-            IndexRender.indexPage()
+            IndexPage.indexPage()
+        }
+
+        page("/help") {
+            HelpPage.helpPage()
         }
 
         page("/index/{path}/gut") {
-            IndexRender.indexPage()
+            IndexPage.indexPage()
         }
 
         page("/404") {

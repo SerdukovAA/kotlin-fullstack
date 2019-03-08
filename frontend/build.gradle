@@ -1,36 +1,56 @@
 plugins {
-    id 'org.jetbrains.kotlin.multiplatform' version '1.3.21'
+    id 'kotlin2js' version '1.3.21'
 }
 
-repositories {
-    mavenCentral()
+
+sourceCompatibility = 1.8
+
+dependencies {
+    compile project(':render')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-js"
+    testImplementation "org.jetbrains.kotlin:kotlin-test-js"
 }
 
-kotlin {
-    jvm {
-        compilations.main.kotlinOptions {
-             jvmTarget = "1.8"
-        }
-    }
-    js()
+compileKotlin2Js {
+    kotlinOptions.outputFile = "${projectDir}/src/main/resources/output.js"
+    kotlinOptions.moduleKind = 'commonjs'
+    kotlinOptions.metaInfo = true
+    kotlinOptions.sourceMap = true
+    kotlinOptions.main = "call"
+}
 
-    sourceSets {
-        commonMain {
-            dependencies {
-                implementation 'org.jetbrains.kotlin:kotlin-stdlib-common'
+task assembleWeb(type: Sync) {
+    configurations.compile.each { File file ->
+        from(zipTree(file.absolutePath), {
+            includeEmptyDirs = false
+            include { fileTreeElement ->
+                def path = fileTreeElement.path
+                path.endsWith(".js") && (path.startsWith("META-INF/resources/") ||
+                        !path.startsWith("META-INF/"))
             }
-        }
-        jvmMain {
-            dependencies {
-                implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
-            }
-        }
-        jsMain {
-            dependencies {
-                implementation 'org.jetbrains.kotlin:kotlin-stdlib-js'
-            }
-        }
-        
+        })
     }
-    
+    from compileKotlin2Js.destinationDir
+    into "${projectDir}/src/main/resources/lib"
+
+    dependsOn classes
+}
+
+assemble.dependsOn assembleWeb
+
+task buildJs {
+
+    doLast {
+
+//   (new File('test.js')).text = files('test1.js', 'test2.js').collect{it.getText()}.join("\n")
+        println("==================")
+        fileTree("${projectDir}/src/main/resources").forEach({
+            println(it)
+        })
+
+
+        println("==================")
+    }
+
+    dependsOn build
 }

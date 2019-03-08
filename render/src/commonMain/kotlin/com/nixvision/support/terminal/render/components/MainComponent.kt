@@ -40,16 +40,26 @@ fun DIV.leftMenuWithContent(content: DIV.() -> Unit) {
         id = "leftMenuWithContent"
         style = " display: flex; flex:auto; background-color: #DDD;"
 
-        //LEFT SIDE MENU
+        //MENU LEFT SIDE
         div {
             id = "leftSideMenu"
-            style = " width: 60px; border-right:1px solid #333"
-            +"left side menu"
+            style = " width: 80px; border-right:1px solid #333;display: flex; flex-direction: column;"
+            a{
+                style ="font-size:25px;"
+                href = "/index"
+                + "Index"
+            }
+            a{
+                style ="font-size:25px;"
+                href = "/help"
+                + "Help"
+            }
+
         }
 
-        //CONTENT FOR RIGHT
+        //CONTENT RIGHT SIDE
         div {
-            id = "leftMenuContent"
+            id = "rightSideContent"
             style = " flex: auto "
 
             content()

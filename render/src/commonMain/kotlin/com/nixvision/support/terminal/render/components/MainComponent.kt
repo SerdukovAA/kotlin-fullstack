@@ -21,7 +21,7 @@ fun HTML.mainLayoutWithTitleBar(content: DIV.() -> Unit) {
 fun BODY.mainContainer(content: DIV.() -> Unit) {
     div {
         id = "mainContainer"
-        style = " display: flex; flex-direction: column; height: 100%;"
+        style = " display: flex; flex-direction: column; min-height: 100%;"
         content()
     }
 }

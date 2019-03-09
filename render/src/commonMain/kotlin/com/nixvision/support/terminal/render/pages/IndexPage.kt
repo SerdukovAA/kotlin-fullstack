@@ -15,9 +15,8 @@ object IndexPage {
             mainHead()
             mainLayoutWithTitleBar {
                 div {
-                    h1 {
-                        +"Index Content"
-                    }
+                    h1 {+ "Index Content" }
+
                 }
             }
         }

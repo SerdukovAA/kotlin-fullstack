@@ -11,14 +11,14 @@ import kotlinx.html.stream.createHTML
 object HelpPage {
 
     fun helpPage(): ModelAndView {
-        val html =  createHTML().html {
+        val html = createHTML().html {
             mainHead()
             mainLayoutWithTitleBar {
-                    div {
-                        h1 {
-                            +"Help Content"
-                        }
+                div {
+                    h1 {
+                        +"Help Content"
                     }
+                }
             }
         }
         return ModelAndView(html)

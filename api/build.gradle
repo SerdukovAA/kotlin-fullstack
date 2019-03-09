@@ -9,7 +9,7 @@ repositories {
 kotlin {
     jvm {
         compilations.main.kotlinOptions {
-             jvmTarget = "1.8"
+            jvmTarget = "1.8"
         }
     }
     js()
@@ -30,7 +30,7 @@ kotlin {
                 implementation 'org.jetbrains.kotlin:kotlin-stdlib-js'
             }
         }
-        
+
     }
-    
+
 }

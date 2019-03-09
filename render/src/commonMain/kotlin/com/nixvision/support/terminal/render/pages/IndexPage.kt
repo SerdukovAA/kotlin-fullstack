@@ -11,14 +11,14 @@ import kotlinx.html.stream.createHTML
 object IndexPage {
 
     fun indexPage(): ModelAndView {
-        val html =  createHTML().html {
+        val html = createHTML().html {
             mainHead()
             mainLayoutWithTitleBar {
-                    div {
-                        h1{
-                            + "Index Content"
-                        }
+                div {
+                    h1 {
+                        +"Index Content"
                     }
+                }
             }
         }
         return ModelAndView(html)

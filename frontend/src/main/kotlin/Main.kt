@@ -2,7 +2,7 @@ import kotlin.browser.document
 
 fun main() {
 
-    document.addEventListener("DOMContentLoaded",{
+    document.addEventListener("DOMContentLoaded", {
         Routing.run()
     })
 

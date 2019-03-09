@@ -6,17 +6,17 @@ import kotlinx.html.script
 
 
 fun HTML.mainHead() {
-    head{
-        script{
+    head {
+        script {
             src = "/kotlin.js"
         }
-        script{
+        script {
             src = "/kotlinx-html-js.js"
         }
-        script{
+        script {
             src = "/render.js"
         }
-        script{
+        script {
             src = "/script.js"
         }
         generalStyle()

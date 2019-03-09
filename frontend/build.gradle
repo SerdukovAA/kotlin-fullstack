@@ -38,14 +38,12 @@ task assembleWeb(type: Sync) {
 assemble.dependsOn assembleWeb
 
 
-task cleanOldBuild (type:Exec) {
+task cleanOldBuild(type: Exec) {
     executable = 'rm'
     args = ['-Rf', "${projectDir}/src/main/resources", "../backend/src/main/resources/static"]
 }
 build.dependsOn cleanOldBuild
 build.mustRunAfter cleanOldBuild
-
-
 
 
 task dist() {

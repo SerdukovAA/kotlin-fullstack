@@ -16,7 +16,7 @@ repositories {
 dependencies {
 
     implementation project(':render')
-    
+
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'com.fasterxml.jackson.module:jackson-module-kotlin'
     implementation 'org.jetbrains.kotlin:kotlin-reflect'
@@ -42,8 +42,8 @@ compileTestKotlin {
     }
 }
 
-task front (type:Exec) {
-    workingDir =  '../'
+task front(type: Exec) {
+    workingDir = '../'
     executable = './gradlew'
     args = ['-p', 'frontend', 'dist']
 }

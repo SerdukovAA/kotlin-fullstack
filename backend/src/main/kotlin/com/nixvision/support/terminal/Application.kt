@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @SpringBootApplication
-class Application{
+class Application {
     @GetMapping("/fuck")
-    fun getFuck():String{
+    fun getFuck(): String {
         return "Not FOUND"
     }
 

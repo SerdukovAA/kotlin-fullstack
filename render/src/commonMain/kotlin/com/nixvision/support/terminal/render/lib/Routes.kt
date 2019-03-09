@@ -8,14 +8,14 @@ object Routes {
 
     fun page(pathTemplate: String, contextFun: RoutContext.() -> ModelAndView) {
         //парсим pathTemplate и загоняем переменные в RoutContext
-        routes[pathTemplate] = { path ->  contextFun(RoutContext(path))}
+        routes[pathTemplate] = { path -> contextFun(RoutContext(path)) }
     }
 
 }
 
 fun RoutingConfiguration.page(pathTemplate: String, contextFun: RoutContext.() -> ModelAndView) {
     //parsing pathTemplate
-    Routes.routes[pathTemplate] = { path ->  contextFun(RoutContext(path))}
+    Routes.routes[pathTemplate] = { path -> contextFun(RoutContext(path)) }
 }
 
-val RoutingConfiguration.routes: MutableSet<String>  get() = Routes.routes.keys
+val RoutingConfiguration.routes: MutableSet<String> get() = Routes.routes.keys

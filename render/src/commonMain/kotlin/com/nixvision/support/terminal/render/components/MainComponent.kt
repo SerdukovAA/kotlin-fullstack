@@ -4,7 +4,8 @@ import kotlinx.html.*
 
 
 fun HTML.mainLayoutWithTitleBar(content: DIV.() -> Unit) {
-    body { style = "margin:0"
+    body {
+        style = "margin:0"
         mainContainer {
             //Header
             titleToolBar(title = "SupportTerminal")
@@ -26,7 +27,7 @@ fun BODY.mainContainer(content: DIV.() -> Unit) {
 }
 
 
-fun DIV.titleToolBar(title:String) {
+fun DIV.titleToolBar(title: String) {
     div {
         id = "titleToolBar"
         style = """ height: 50px; background-color: #999; border-bottom:1px solid #333 """
@@ -44,20 +45,20 @@ fun DIV.leftMenuWithContent(content: DIV.() -> Unit) {
         div {
             id = "leftSideMenu"
             style = " width: 80px; border-right:1px solid #333;display: flex; flex-direction: column;"
-            a{
-                style ="font-size:25px;"
+            a {
+                style = "font-size:25px;"
                 href = "/index"
-                + "Index"
+                +"Index"
             }
-            a{
-                style ="font-size:25px;"
+            a {
+                style = "font-size:25px;"
                 href = "/help"
-                + "Help"
+                +"Help"
             }
-            a{
-                style ="font-size:25px;"
+            a {
+                style = "font-size:25px;"
                 href = "/fuck"
-                + "Fuck"
+                +"Fuck"
             }
 
         }

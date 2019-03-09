@@ -8,7 +8,13 @@ import kotlinx.html.script
 fun HTML.mainHead() {
     head{
         script{
-            src = "/lib.js"
+            src = "/kotlin.js"
+        }
+        script{
+            src = "/kotlinx-html-js.js"
+        }
+        script{
+            src = "/render.js"
         }
         script{
             src = "/script.js"

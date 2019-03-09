@@ -1,9 +1,15 @@
 package com.nixvision.support.terminal.render.lib
 
+import com.nixvision.support.terminal.render.RoutingConfiguration
+
 
 object RoutesHandler {
 
      val PATH_VARIABLE_PLACE_HOLDER = Regex("\\{[\\s\\S]+\\}")
+
+    init{
+        RoutingConfiguration
+    }
 
      fun handle(path:String) : ModelAndView {
          var resultView = ModelAndView()

@@ -54,6 +54,11 @@ fun DIV.leftMenuWithContent(content: DIV.() -> Unit) {
                 href = "/help"
                 + "Help"
             }
+            a{
+                style ="font-size:25px;"
+                href = "/fuck"
+                + "Fuck"
+            }
 
         }
 

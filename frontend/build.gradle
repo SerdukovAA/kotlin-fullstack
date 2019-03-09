@@ -12,7 +12,7 @@ dependencies {
 }
 
 compileKotlin2Js {
-    kotlinOptions.outputFile = "${projectDir}/src/main/resources/script/output.js"
+    kotlinOptions.outputFile = "${projectDir}/src/main/resources/script/script.js"
     kotlinOptions.moduleKind = 'plain'
     kotlinOptions.metaInfo = false
     kotlinOptions.sourceMap = false
@@ -45,50 +45,21 @@ task cleanOldBuild (type:Exec) {
 build.dependsOn cleanOldBuild
 build.mustRunAfter cleanOldBuild
 
-task buildJs() {
 
-    doLast {
-        //create resources folder, was deleted on cleanOldBuild
-        mkdir "${projectDir}/src/main/resources"
-
-        //join libs
-        (new File("${projectDir}/src/main/resources/lib.js")).text = fileTree("${projectDir}/src/main/resources/lib").sort()
-                .collect {
-            it.getText()
-        }.join("\n")
-
-        //join src
-        (new File("${projectDir}/src/main/resources/script.js")).text = fileTree("${projectDir}/src/main/resources/script").collect {
-            it.getText()
-        }.join("\n")
-    }
-    dependsOn build
-    mustRunAfter build
-}
-buildJs.dependsOn build
-buildJs.mustRunAfter build
-
-task cleanNewBuild (type:Exec) {
-    executable = 'rm'
-    args = ['-Rf', "${projectDir}/src/main/resources/lib", "${projectDir}/src/main/resources/script",]
-    shouldRunAfter buildJs
-}
-cleanNewBuild.mustRunAfter buildJs
 
 
 task dist() {
     doLast {
         copy {
-            from "${projectDir}/src/main/resources/script.js"
+            from "${projectDir}/src/main/resources/script/script.js"
             into "../backend/src/main/resources/static"
         }
         copy {
-            from "${projectDir}/src/main/resources/lib.js"
+            from "${projectDir}/src/main/resources/lib"
             into "../backend/src/main/resources/static"
         }
     }
 }
 
-dist.dependsOn buildJs
-dist.dependsOn cleanNewBuild
-dist.shouldRunAfter buildJs
+dist.dependsOn build
+dist.shouldRunAfter build

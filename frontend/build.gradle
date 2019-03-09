@@ -12,10 +12,10 @@ dependencies {
 }
 
 compileKotlin2Js {
-    kotlinOptions.outputFile = "${projectDir}/src/main/resources/output.js"
-    kotlinOptions.moduleKind = 'commonjs'
-    kotlinOptions.metaInfo = true
-    kotlinOptions.sourceMap = true
+    kotlinOptions.outputFile = "${projectDir}/src/main/resources/script/output.js"
+    kotlinOptions.moduleKind = 'plain'
+    kotlinOptions.metaInfo = false
+    kotlinOptions.sourceMap = false
     kotlinOptions.main = "call"
 }
 
@@ -35,22 +35,60 @@ task assembleWeb(type: Sync) {
 
     dependsOn classes
 }
-
 assemble.dependsOn assembleWeb
 
-task buildJs {
+
+task cleanOldBuild (type:Exec) {
+    executable = 'rm'
+    args = ['-Rf', "${projectDir}/src/main/resources", "../backend/src/main/resources/static"]
+}
+build.dependsOn cleanOldBuild
+build.mustRunAfter cleanOldBuild
+
+task buildJs() {
 
     doLast {
+        //create resources folder, was deleted on cleanOldBuild
+        mkdir "${projectDir}/src/main/resources"
 
-//   (new File('test.js')).text = files('test1.js', 'test2.js').collect{it.getText()}.join("\n")
-        println("==================")
-        fileTree("${projectDir}/src/main/resources").forEach({
-            println(it)
-        })
+        //join libs
+        (new File("${projectDir}/src/main/resources/lib.js")).text = fileTree("${projectDir}/src/main/resources/lib").sort()
+                .collect {
+            it.getText()
+        }.join("\n")
 
-
-        println("==================")
+        //join src
+        (new File("${projectDir}/src/main/resources/script.js")).text = fileTree("${projectDir}/src/main/resources/script").collect {
+            it.getText()
+        }.join("\n")
     }
-
     dependsOn build
+    mustRunAfter build
 }
+buildJs.dependsOn build
+buildJs.mustRunAfter build
+
+task cleanNewBuild (type:Exec) {
+    executable = 'rm'
+    args = ['-Rf', "${projectDir}/src/main/resources/lib", "${projectDir}/src/main/resources/script",]
+    shouldRunAfter buildJs
+}
+cleanNewBuild.mustRunAfter buildJs
+
+
+task dist() {
+    doLast {
+        copy {
+            from "${projectDir}/src/main/resources/script.js"
+            into "../backend/src/main/resources/static"
+        }
+        copy {
+            from "${projectDir}/src/main/resources/lib.js"
+            into "../backend/src/main/resources/static"
+        }
+    }
+}
+
+dist.dependsOn buildJs
+dist.dependsOn cleanNewBuild
+dist.shouldRunAfter buildJs

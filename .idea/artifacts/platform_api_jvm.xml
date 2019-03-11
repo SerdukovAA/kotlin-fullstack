@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="platform-api-jvm">
-    <output-path>$PROJECT_DIR$/platform-api/build/libs</output-path>
-    <root id="archive" name="platform-api-jvm.jar">
-      <element id="module-output" name="kotlinfullstack.platform-api.jvmMain" />
-    </root>
-  </artifact>
-</component>

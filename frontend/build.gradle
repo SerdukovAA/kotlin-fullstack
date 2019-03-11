@@ -1,9 +1,24 @@
-plugins {
-    id 'kotlin2js' version '1.3.21'
+buildscript {
+    ext.kotlin_version = '1.3.21'
+
+    repositories {
+        jcenter()
+        maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
+    }
+
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-frontend-plugin:0.0.45"
+    }
 }
 
+apply plugin: 'kotlin2js'
+apply plugin: 'kotlin-dce-js'
+apply plugin: 'org.jetbrains.kotlin.frontend'
 
-sourceCompatibility = 1.8
+repositories {
+    jcenter()
+}
 
 dependencies {
     compile project(':render')
@@ -12,10 +27,10 @@ dependencies {
 }
 
 compileKotlin2Js {
-    kotlinOptions.outputFile = "${projectDir}/src/main/resources/script/script.js"
-    kotlinOptions.moduleKind = 'plain'
-    kotlinOptions.metaInfo = false
-    kotlinOptions.sourceMap = false
+    kotlinOptions.metaInfo = true
+    kotlinOptions.outputFile = "${projectDir}/src/main/resources/distr/script.js"
+    kotlinOptions.sourceMap = true
+    kotlinOptions.moduleKind = 'commonjs'
     kotlinOptions.main = "call"
 }
 
@@ -31,33 +46,23 @@ task assembleWeb(type: Sync) {
         })
     }
     from compileKotlin2Js.destinationDir
-    into "${projectDir}/src/main/resources/lib"
+    into "${projectDir}/src/main/resources/distr/lib"
 
     dependsOn classes
 }
 assemble.dependsOn assembleWeb
 
+kotlinFrontend {
+    downloadNodeJsVersion = "latest"
 
-task cleanOldBuild(type: Exec) {
-    executable = 'rm'
-    args = ['-Rf', "${projectDir}/src/main/resources", "../backend/src/main/resources/static"]
-}
-build.dependsOn cleanOldBuild
-build.mustRunAfter cleanOldBuild
-
-
-task dist() {
-    doLast {
-        copy {
-            from "${projectDir}/src/main/resources/script/script.js"
-            into "../backend/src/main/resources/static"
-        }
-        copy {
-            from "${projectDir}/src/main/resources/lib"
-            into "../backend/src/main/resources/static"
-        }
+    npm {
+        dependency "style-loader"
     }
-}
 
-dist.dependsOn build
-dist.shouldRunAfter build
+    webpackBundle {
+        bundleName = "main"
+        contentPath = file("${projectDir}/src/main/resources/distr")
+        mode = 'production'
+    }
+
+}

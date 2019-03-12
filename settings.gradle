@@ -1,6 +1,5 @@
 rootProject.name = 'kotlinfullstack'
 
-include 'core' // core business logic
 include ':modules:api' // common between front and back
 include ':modules:render' // common for UI representation (HTML)
 

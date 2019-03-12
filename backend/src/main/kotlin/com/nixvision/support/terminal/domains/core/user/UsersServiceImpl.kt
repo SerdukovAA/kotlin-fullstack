@@ -1,6 +1,6 @@
-package com.nixvision.support.terminal.domains.user
+package com.nixvision.support.terminal.domains.core.user
 
-import com.nixvision.support.terminal.domains.user.model.User
+import com.nixvision.support.terminal.domains.core.user.model.User
 import org.springframework.stereotype.Service
 
 @Service

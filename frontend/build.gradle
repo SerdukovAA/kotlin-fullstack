@@ -19,7 +19,8 @@ repositories {
 }
 
 dependencies {
-    compile project(':modules:render')
+    compile project(':api')
+    compile project(':render')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-js"
     implementation "org.jetbrains.kotlinx:kotlinx-html-js:0.6.12"
     testImplementation "org.jetbrains.kotlin:kotlin-test-js"

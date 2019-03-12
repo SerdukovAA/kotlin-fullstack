@@ -1,10 +1,11 @@
 rootProject.name = 'kotlinfullstack'
 
-include ':modules:api' // common between front and back
-include ':modules:render' // common for UI representation (HTML)
+include ':render' // common for UI representation (HTML)
+include ':api' // common between front and back
 
-include 'frontend' // browser SPA UI
-include 'backend' // REST-api and CEO support for UI
+include ':frontend' // browser SPA UI
+include ':backend' // REST-api and CEO support for UI
+include ':core' // REST-api and CEO support for UI
 
 
 

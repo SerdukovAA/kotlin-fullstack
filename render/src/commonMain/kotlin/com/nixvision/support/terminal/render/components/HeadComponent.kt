@@ -7,17 +7,11 @@ import kotlinx.html.script
 
 fun HTML.mainHead() {
     head {
-        script {
+/*        script {
             src = "/kotlin.js"
-        }
+        }*/
         script {
-            src = "/kotlinx-html-js.js"
-        }
-        script {
-            src = "/render.js"
-        }
-        script {
-            src = "/script.js"
+            src = "/main.bundle.js"
         }
         generalStyle()
     }

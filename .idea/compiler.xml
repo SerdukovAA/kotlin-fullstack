@@ -8,8 +8,8 @@
       <module name="kotlinfullstack.backend.test" target="1.8" />
       <module name="kotlinfullstack.core.jvmMain" target="1.8" />
       <module name="kotlinfullstack.core.jvmTest" target="1.6" />
-      <module name="kotlinfullstack.frontend.main" target="11" />
-      <module name="kotlinfullstack.frontend.test" target="11" />
+      <module name="kotlinfullstack.frontend.main" target="1.8" />
+      <module name="kotlinfullstack.frontend.test" target="1.8" />
       <module name="kotlinfullstack.render.jvmMain" target="1.8" />
       <module name="kotlinfullstack.render.jvmTest" target="1.6" />
     </bytecodeTargetLevel>

@@ -42,16 +42,6 @@ compileTestKotlin {
     }
 }
 
-task front(type: Exec) {
-    workingDir = '../'
-    executable = './gradlew'
-    args = ['-p', 'frontend', 'dist']
-}
-bootRun.dependsOn front
-bootRun.shouldRunAfter front
-build.dependsOn front
-
-
 test {
     useJUnitPlatform()
 }

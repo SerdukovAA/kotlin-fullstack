@@ -23,6 +23,7 @@ repositories {
 dependencies {
     compile project(':render')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-js"
+    implementation "org.jetbrains.kotlinx:kotlinx-html-js:0.6.12"
     testImplementation "org.jetbrains.kotlin:kotlin-test-js"
 }
 
@@ -34,35 +35,11 @@ compileKotlin2Js {
     kotlinOptions.main = "call"
 }
 
-task assembleWeb(type: Sync) {
-    configurations.compile.each { File file ->
-        from(zipTree(file.absolutePath), {
-            includeEmptyDirs = false
-            include { fileTreeElement ->
-                def path = fileTreeElement.path
-                path.endsWith(".js") && (path.startsWith("META-INF/resources/") ||
-                        !path.startsWith("META-INF/"))
-            }
-        })
-    }
-    from compileKotlin2Js.destinationDir
-    into "${projectDir}/src/main/resources/distr/lib"
-
-    dependsOn classes
-}
-assemble.dependsOn assembleWeb
-
 kotlinFrontend {
     downloadNodeJsVersion = "latest"
 
-    npm {
-        dependency "style-loader"
-    }
-
     webpackBundle {
         bundleName = "main"
-        contentPath = file("${projectDir}/src/main/resources/distr")
-        mode = 'production'
     }
 
 }

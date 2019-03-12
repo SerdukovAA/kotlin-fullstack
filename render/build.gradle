@@ -44,6 +44,12 @@ kotlin {
                 implementation 'org.jetbrains.kotlin:kotlin-stdlib-js'
                 implementation "org.jetbrains.kotlinx:kotlinx-html-js:${kotlinHtmlVersion}"
             }
+            compileKotlinJs {
+                kotlinOptions.metaInfo = true
+                kotlinOptions.sourceMap = true
+                kotlinOptions.moduleKind = 'commonjs'
+                kotlinOptions.main = "call"
+            }
         }
 
     }

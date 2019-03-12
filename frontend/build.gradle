@@ -1,14 +1,12 @@
 buildscript {
-    ext.kotlin_version = '1.3.21'
-
     repositories {
         jcenter()
         maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
     }
 
     dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath "org.jetbrains.kotlin:kotlin-frontend-plugin:0.0.45"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}"
+        classpath "org.jetbrains.kotlin:kotlin-frontend-plugin:${kotlinFrontendPlugin}"
     }
 }
 
@@ -29,7 +27,7 @@ dependencies {
 
 compileKotlin2Js {
     kotlinOptions.metaInfo = true
-    kotlinOptions.outputFile = "${projectDir}/src/main/resources/distr/script.js"
+    kotlinOptions.outputFile = "${projectDir}/src/main/resources/output.js"
     kotlinOptions.sourceMap = true
     kotlinOptions.moduleKind = 'commonjs'
     kotlinOptions.main = "call"
@@ -40,7 +38,8 @@ kotlinFrontend {
 
     webpackBundle {
         bundleName = "main"
-        mode = 'production'
+        mode = 'development'
+        //mode = 'production'
     }
 
 }

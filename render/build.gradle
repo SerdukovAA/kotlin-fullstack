@@ -1,13 +1,20 @@
-plugins {
-    id 'org.jetbrains.kotlin.multiplatform' version '1.3.21'
+buildscript {
+    repositories {
+        jcenter()
+        maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
+    }
+
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}"
+    }
 }
 
-ext.kotlinHtmlVersion = "0.6.12"
+apply plugin: "org.jetbrains.kotlin.multiplatform"
+
 
 repositories {
     mavenCentral()
 }
-
 
 kotlin {
     jvm {

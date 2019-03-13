@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.ResponseStatus
 import org.springframework.web.bind.annotation.RestController
+import test.DemoUsersServiceImpl
 
 
 @RestController
@@ -17,6 +18,11 @@ class UsersApiController (private val usersApiService: UsersApiService) {
     @ResponseStatus(code = HttpStatus.OK)
     fun getAllUsers(): List<UserDTO> {
         return usersApiService.getAllUsers()
+    }
+   @GetMapping("/test")
+    @ResponseStatus(code = HttpStatus.OK)
+    fun getAllUsersTest(): List<String> {
+        return DemoUsersServiceImpl().getAllUsers();
     }
 
 }

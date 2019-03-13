@@ -4,6 +4,8 @@
     <bytecodeTargetLevel>
       <module name="kotlinfullstack.api.jvmMain" target="1.8" />
       <module name="kotlinfullstack.api.jvmTest" target="1.6" />
+      <module name="kotlinfullstack.api.main" target="1.8" />
+      <module name="kotlinfullstack.api.test" target="1.8" />
       <module name="kotlinfullstack.backend.main" target="1.8" />
       <module name="kotlinfullstack.backend.test" target="1.8" />
       <module name="kotlinfullstack.core.main" target="1.8" />
@@ -12,6 +14,8 @@
       <module name="kotlinfullstack.frontend.test" target="1.8" />
       <module name="kotlinfullstack.render.jvmMain" target="1.8" />
       <module name="kotlinfullstack.render.jvmTest" target="1.6" />
+      <module name="kotlinfullstack.render.main" target="1.8" />
+      <module name="kotlinfullstack.render.test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

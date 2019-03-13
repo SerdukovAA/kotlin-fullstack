@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse
 
 
 @Configuration
-class DynamicPagesController {
+class DynamicControllersConfiguration {
     @Bean
     fun dynamicPagesMapping(): SimpleUrlHandlerMapping {
         val mapping = SimpleUrlHandlerMapping()

@@ -53,6 +53,28 @@ compileTestKotlin {
     }
 }
 
+task front() {
+    doLast {
+        copy {
+            from "../frontend/build/bundle/main.bundle.js"
+            into "${projectDir}/src/main/resources/static"
+        }
+    }
+}
+front.dependsOn (':frontend:build')
+front.mustRunAfter (':frontend:build')
+build.dependsOn front
+build.mustRunAfter front
+
+
+task cleanOldFront (type:Exec) {
+    executable = 'rm'
+    args = ['-Rf', "${projectDir}/src/main/resources/static"]
+}
+clean.dependsOn cleanOldFront
+
+
+
 test {
     useJUnitPlatform()
 }

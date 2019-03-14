@@ -6,6 +6,7 @@ import com.nixvision.support.terminal.render.pages.HelpPage
 import com.nixvision.support.terminal.render.pages.IndexPage
 import com.nixvision.support.terminal.render.pages.NotFoundRender
 import com.nixvision.support.terminal.render.pages.ProductRender
+import com.nixvision.support.terminal.render.pages.users.UserFormPage
 
 
 object RoutingConfiguration {
@@ -21,13 +22,18 @@ object RoutingConfiguration {
             IndexPage.indexPage()
         }
 
+/*        page("/") {
+            IndexPage.indexPage()
+        }*/
+
         page("/help") {
             HelpPage.helpPage()
         }
 
-        page("/index/{path}/gut") {
-            IndexPage.indexPage()
+        page("/users") {
+            UserFormPage.page()
         }
+
 
         page(NOT_FOUND_URL) {
             NotFoundRender.pageNotFound()

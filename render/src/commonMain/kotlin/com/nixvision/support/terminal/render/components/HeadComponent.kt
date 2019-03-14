@@ -2,14 +2,15 @@ package com.nixvision.support.terminal.render.components
 
 import kotlinx.html.HTML
 import kotlinx.html.head
+import kotlinx.html.meta
 import kotlinx.html.script
 
 
 fun HTML.mainHead() {
     head {
-/*        script {
-            src = "/kotlin.js"
-        }*/
+        meta {
+            charset = "utf-8"
+        }
         script {
             src = "/main.bundle.js"
         }

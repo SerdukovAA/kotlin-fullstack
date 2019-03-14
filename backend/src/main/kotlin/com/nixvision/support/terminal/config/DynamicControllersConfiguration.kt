@@ -25,7 +25,8 @@ class DynamicControllersConfiguration {
             urlMap[path] = object : AbstractController() {
                 override fun handleRequestInternal(request: HttpServletRequest, response: HttpServletResponse): ModelAndView? {
                     val mv = RoutesHandler.handle(request.getRequestPath())
-                    response.writer.println(mv?.html)
+                    response.characterEncoding = "UTF-8"
+                    response.writer.write(mv?.html)
                     return null
                 }
             }

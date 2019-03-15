@@ -58,7 +58,7 @@ fun DIV.leftMenuWithContent(content: DIV.() -> Unit) {
             }
             a {
                 style = "font-size:25px;"
-                href = "/users"
+                href = "/users/list"
                 +"Пользователи"
             }
 

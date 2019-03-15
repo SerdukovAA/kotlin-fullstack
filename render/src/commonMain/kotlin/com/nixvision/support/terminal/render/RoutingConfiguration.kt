@@ -6,7 +6,7 @@ import com.nixvision.support.terminal.render.pages.HelpPage
 import com.nixvision.support.terminal.render.pages.IndexPage
 import com.nixvision.support.terminal.render.pages.NotFoundRender
 import com.nixvision.support.terminal.render.pages.ProductRender
-import com.nixvision.support.terminal.render.pages.users.UserFormPage
+import com.nixvision.support.terminal.render.pages.users.UsersListPage
 
 
 object RoutingConfiguration {
@@ -30,8 +30,8 @@ object RoutingConfiguration {
             HelpPage.helpPage()
         }
 
-        page("/users") {
-            UserFormPage.page()
+        page("/users/list") {
+            UsersListPage.page()
         }
 
 

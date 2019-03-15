@@ -19,11 +19,7 @@ class UsersApiController (private val usersApiService: UsersApiService) {
     fun getAllUsers(): List<UserDTO> {
         return usersApiService.getAllUsers()
     }
-   @GetMapping("/test")
-    @ResponseStatus(code = HttpStatus.OK)
-    fun getAllUsersTest(): List<String> {
-        return DemoUsersServiceImpl().getAllUsers();
-    }
+
 
 }
 

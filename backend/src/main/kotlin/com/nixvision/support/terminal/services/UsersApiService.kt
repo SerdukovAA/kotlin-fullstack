@@ -8,6 +8,6 @@ import org.springframework.stereotype.Service
 class UsersApiService (private val usersService: UsersService){
 
     fun getAllUsers(): List<UserDTO>{
-        return usersService.getAllUsers().map {UserDTO(it.name)}.toList()
+        return usersService.getAllUsers().map {UserDTO(1, it.name)}.toList()
     }
 }

@@ -1,18 +1,23 @@
 package com.nixvision.support.terminal.render.pages.users
 
 import com.nixvision.support.terminal.api.user.UserDTO
+import com.nixvision.support.terminal.core.domains.user.UsersService
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.stereotype.Component
 
-
+@Component
 actual object UserRenderService {
 
+    lateinit var userServices: UsersService
+
+    @Autowired
+    fun context(userServices: UsersService) {
+        this.userServices = userServices
+    }
+
     actual fun getAllUsers(): List<UserDTO> {
-        return listOf(
-                UserDTO(1, "JVM - Ванечка"),
-                UserDTO(2, "Леночка"),
-                UserDTO(3, "Сократ"),
-                UserDTO(4, "Иринка"),
-                UserDTO(45, "Колька Семенов")
-        )
+        return userServices.getAllUsers()
+                .map { UserDTO(it.id, it.name) }
     }
 }
 

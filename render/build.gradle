@@ -44,6 +44,7 @@ kotlin {
         jvmMain {
             dependencies {
                 implementation project(':core')
+                implementation 'org.jetbrains.kotlin:kotlin-reflect'
                 implementation "org.springframework.boot:spring-boot-starter:${springBootVersion}"
                 implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
                 implementation "org.jetbrains.kotlinx:kotlinx-html-jvm:${kotlinHtmlVersion}"

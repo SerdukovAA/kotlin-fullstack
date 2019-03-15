@@ -3,7 +3,6 @@ package com.nixvision.support.terminal.render.pages.users
 import com.nixvision.support.terminal.api.user.UserDTO
 
 
-@Service
 actual object UserRenderService {
 
     actual fun getAllUsers(): List<UserDTO> {

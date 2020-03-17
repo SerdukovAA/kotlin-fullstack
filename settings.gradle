@@ -1,6 +1,7 @@
 include ':api' // common between front and back
 include ':core' // core business
 include ':render' // common for UI representation (HTML)
+include ':framework' // framework
 
 include ':frontend' // browser SPA UI
 include ':backend' // REST-api and CEO support for UI

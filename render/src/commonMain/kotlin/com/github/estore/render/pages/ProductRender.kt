@@ -1,13 +1,13 @@
 package com.github.estore.render.pages
 
-import com.github.estore.render.lib.ModelAndView
+import com.github.kotlin.isomorph.framework.ModelAndViewK
 
 
 object ProductRender {
 
-    fun pageForOneProduct(id: String?): ModelAndView {
+    fun pageForOneProduct(id: String?): ModelAndViewK {
 
-        return ModelAndView(html = "<h4>Product ${id}</h4>", model = Any())
+        return ModelAndViewK(html = "<h4>Product ${id}</h4>", model = Any())
     }
 
 }

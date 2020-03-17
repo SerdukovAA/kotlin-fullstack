@@ -6,7 +6,6 @@ import kotlin.test.assertTrue
 
 
 class RoutesHandlerTest {
-
     @Test
     fun Check_isPathMatchTemplate_method() {
 

@@ -27,8 +27,6 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                implementation project(':framework')
-                implementation project(':api')
                 implementation 'org.jetbrains.kotlin:kotlin-stdlib-common'
                 implementation "org.jetbrains.kotlin:kotlin-test-junit"
                 implementation "org.jetbrains.kotlin:kotlin-test"
@@ -44,8 +42,6 @@ kotlin {
         }
         jvmMain {
             dependencies {
-                implementation project(':framework')
-                implementation project(':core')
                 implementation 'org.jetbrains.kotlin:kotlin-reflect'
                 implementation "org.springframework.boot:spring-boot-starter:${springBootVersion}"
                 implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
@@ -54,7 +50,6 @@ kotlin {
         }
         jsMain {
             dependencies {
-                implementation project(':framework')
                 implementation 'org.jetbrains.kotlin:kotlin-stdlib-js'
                 implementation "org.jetbrains.kotlinx:kotlinx-html-js:${kotlinHtmlVersion}"
             }

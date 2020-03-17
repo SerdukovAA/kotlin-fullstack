@@ -1,6 +1,6 @@
-import com.github.estore.render.lib.ModelAndView
-import com.github.estore.render.lib.Routes.NOT_FOUND_URL
 import com.github.estore.render.lib.RoutesHandler
+import com.github.kotlin.isomorph.framework.ModelAndViewK
+import com.github.kotlin.isomorph.framework.NOT_FOUND_URL
 import org.w3c.dom.Document
 import org.w3c.dom.HTMLAnchorElement
 import org.w3c.dom.events.MouseEvent
@@ -17,7 +17,7 @@ object Routing {
             if (it is MouseEvent && it.target is HTMLAnchorElement) {
                 it.preventDefault()
                 val lnk = it.target as HTMLAnchorElement
-                var view: ModelAndView? = RoutesHandler.handle(lnk.pathname)
+                var view: ModelAndViewK? = RoutesHandler.handle(lnk.pathname)
                 if (view == null) {
                     view = RoutesHandler.handle(NOT_FOUND_URL)
                 }

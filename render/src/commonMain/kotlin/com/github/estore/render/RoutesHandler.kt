@@ -1,6 +1,7 @@
 package com.github.estore.render.lib
 
-import com.github.estore.render.RoutingConfiguration
+import com.github.estore.render.PagesRoutingConfiguration
+import com.github.kotlin.isomorph.framework.ModelAndViewK
 
 
 object RoutesHandler {
@@ -8,18 +9,18 @@ object RoutesHandler {
     private val PATH_VARIABLE_PLACE_HOLDER = Regex("\\{[\\s\\S]+\\}")
 
     init {
-        RoutingConfiguration
+        PagesRoutingConfiguration
     }
 
-    fun handle(path: String): ModelAndView? {
-        var resultView: ModelAndView? = null
-        for ((pathTemplate, handler) in Routes.routes) {
+    fun handle(path: String): ModelAndViewK? {
+        var resultViewK: ModelAndViewK? = null
+        for ((pathTemplate, handler) in PagesRoutingConfiguration.routes) {
             if (isPathMatchTemplate(path, pathTemplate)) {
-                resultView = handler.invoke(path)
+                resultViewK = handler.invoke(path)
                 break
             }
         }
-        return resultView
+        return resultViewK
     }
 
 

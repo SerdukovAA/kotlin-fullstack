@@ -1,8 +1,9 @@
-(function (_, Kotlin, $module$render) {
+(function (_, Kotlin, $module$render, $module$framework) {
   'use strict';
   var Unit = Kotlin.kotlin.Unit;
   var throwCCE = Kotlin.throwCCE;
   var lib = $module$render.com.github.estore.render.lib;
+  var framework = $module$framework.com.github.kotlin.isomorph.framework;
   var ensureNotNull = Kotlin.ensureNotNull;
   var Kind_OBJECT = Kotlin.Kind.OBJECT;
   function main$lambda(it) {
@@ -22,7 +23,7 @@
       var lnk = Kotlin.isType(tmp$ = it.target, HTMLAnchorElement) ? tmp$ : throwCCE();
       var view = lib.RoutesHandler.handle_61zpoe$(lnk.pathname);
       if (view == null) {
-        view = lib.RoutesHandler.handle_61zpoe$(lib.Routes.NOT_FOUND_URL);
+        view = lib.RoutesHandler.handle_61zpoe$(framework.NOT_FOUND_URL);
       }
       var doc = (new DOMParser()).parseFromString(ensureNotNull(view != null ? view.html : null), 'text/xml');
       var bodyHtml = (tmp$_1 = (tmp$_0 = doc.getElementsByTagName('body')[0]) != null ? tmp$_0.innerHTML : null) != null ? tmp$_1 : '';
@@ -53,6 +54,6 @@
   main();
   Kotlin.defineModule('output', _);
   return _;
-}(module.exports, require('kotlin'), require('render')));
+}(module.exports, require('kotlin'), require('render'), require('framework')));
 
 //# sourceMappingURL=output.js.map

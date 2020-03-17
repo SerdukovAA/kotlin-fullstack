@@ -2,13 +2,13 @@ package com.github.estore.render.pages.users
 
 import com.github.estore.render.blocks.mainHead
 import com.github.estore.render.blocks.mainLayoutWithTitleBar
-import com.github.estore.render.lib.ModelAndView
+import com.github.kotlin.isomorph.framework.ModelAndViewK
 import kotlinx.html.*
 import kotlinx.html.stream.createHTML
 
 object UsersListPage {
 
-    fun page(): ModelAndView {
+    fun page(): ModelAndViewK {
         val html = createHTML().html {
             mainHead()
             mainLayoutWithTitleBar {
@@ -21,7 +21,7 @@ object UsersListPage {
                 }
             }
         }
-        return ModelAndView(html)
+        return ModelAndViewK(html)
     }
 
 }

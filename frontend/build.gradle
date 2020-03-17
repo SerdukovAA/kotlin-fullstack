@@ -19,6 +19,7 @@ repositories {
 }
 
 dependencies {
+    compile project(':framework')
     compile project(':api')
     compile project(':render')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-js"

@@ -1,6 +1,6 @@
-import com.nixvision.support.terminal.render.lib.ModelAndView
-import com.nixvision.support.terminal.render.lib.Routes.NOT_FOUND_URL
-import com.nixvision.support.terminal.render.lib.RoutesHandler
+import com.github.estore.render.lib.ModelAndView
+import com.github.estore.render.lib.Routes.NOT_FOUND_URL
+import com.github.estore.render.lib.RoutesHandler
 import org.w3c.dom.Document
 import org.w3c.dom.HTMLAnchorElement
 import org.w3c.dom.events.MouseEvent

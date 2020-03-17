@@ -10,8 +10,8 @@
       <module name="kotlinfullstack.backend.test" target="1.8" />
       <module name="kotlinfullstack.core.main" target="1.8" />
       <module name="kotlinfullstack.core.test" target="1.8" />
-      <module name="kotlinfullstack.frontend.main" target="1.8" />
-      <module name="kotlinfullstack.frontend.test" target="1.8" />
+      <module name="kotlinfullstack.frontend.main" target="13" />
+      <module name="kotlinfullstack.frontend.test" target="13" />
       <module name="kotlinfullstack.render.jvmMain" target="1.8" />
       <module name="kotlinfullstack.render.jvmTest" target="1.6" />
       <module name="kotlinfullstack.render.main" target="1.8" />
